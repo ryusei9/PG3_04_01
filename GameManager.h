@@ -12,6 +12,12 @@ class GameManager
 private:
 
 	std::unique_ptr<IScene> sceneMax[3];
+
+	//========================================
+	// 今のシーン
+	std::unique_ptr<IScene> nowScene_;
+	// 次のシーン
+	std::unique_ptr<IScene> nextScene_;
 	int currentScene;
 
 	int prevScene;

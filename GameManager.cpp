@@ -4,9 +4,9 @@
 
 GameManager::GameManager()
 {
-	sceneMax[SCENE_1] = std::make_unique<SCENE_1ST>();
-	sceneMax[SCENE_2] = std::make_unique<SCENE_2ND>();
-	sceneMax[SCENE_3] = std::make_unique<SCENE_3RD>();
+	sceneMax[TITLE] = std::make_unique<SCENE_1ST>();
+	sceneMax[STAGE] = std::make_unique<SCENE_2ND>();
+	sceneMax[CLEAR] = std::make_unique<SCENE_3RD>();
 
 }
 
@@ -25,20 +25,11 @@ int GameManager::Run()
 		Novice::GetHitKeyStateAll(keys);
 
 		prevScene = currentScene;
+		currentScene = nowScene_->GetSceneNo();
 		
 		if (prevScene != currentScene)
 		{
 			sceneMax[currentScene]->Initialize();
-		}
-		if (keys[DIK_1] && preKeys[DIK_1] == 0)
-		{
-			currentScene = SCENE_1;
-		} else if (keys[DIK_2] && preKeys[DIK_2] == 0)
-		{
-			currentScene = SCENE_2;
-		} else if (keys[DIK_3] && preKeys[DIK_3] == 0)
-		{
-			currentScene = SCENE_3;
 		}
 
 		sceneMax[currentScene]->Update();
@@ -55,7 +46,7 @@ int GameManager::Run()
 			currentScene);
 
 		// 画面に表示
-		Novice::ScreenPrintf(10, 360,"Push 1,2,3 to chenge scene");
+		Novice::ScreenPrintf(10, 360,"Push SPACE to chenge scene");
 
 		Novice::EndFrame();
 

@@ -7,10 +7,10 @@ void SCENE_3RD::Initialize()
 void SCENE_3RD::Update()
 {
 	/// 更新処理
-	//if (inputManager_->GetInstance()->TriggerKey(DIK_SPACE)) {
-	//	// スペースキーを押したら、次のシーンに切り替える
-	//	sceneNo = SCENE_1;
-	//}
+	if (Novice::CheckHitKey(DIK_SPACE)) {
+		// スペースキーを押したら、次のシーンに切り替える
+		sceneNo = TITLE;
+	}
 }
 
 void SCENE_3RD::Draw()
