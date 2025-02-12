@@ -6,6 +6,7 @@
 #include "SCENE_3RD.h"
 #include "inputManager.h"
 #include "WinApp.h"
+#include "dinput.h"
 class GameManager
 {
 private:
@@ -15,9 +16,12 @@ private:
 
 	int prevScene;
 
-	inputManager* inputManager_;
 
 	WinApp* winApp_ = WinApp::GetInstance();
+
+	// キー入力結果を受け取る箱
+	char keys[256] = { 0 };
+	char preKeys[256] = { 0 };
 public:
 	GameManager();
 	~GameManager();
